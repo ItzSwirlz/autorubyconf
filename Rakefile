@@ -1,6 +1,6 @@
 task :default => %w[test]
 
-desc "Test autorubyconf.rb"
+desc "Check lib/autorubyconf.rb"
 task :test do
-  system("ruby -c -d -w -v autorubyconf.rb")
+  system("ruby -c -d -w -v lib/autorubyconf.rb")
 end
