@@ -7,7 +7,7 @@ def find_modules(module_names, main_module_file_paths)
       themodulepath.to_s
 
       print("Checking for " + themodule + "... ")
-      full_module_path = "/usr/lib/ruby/vendor_ruby/" + themodule + "/" + themodulepath
+      full_module_path = "/var/lib/gems/" + RUBY_VERSION + "/" + themodule + "/" + themodulepath
       system("find " + full_module_path + " > autorubyconf-output.txt")
       if $? == 0
         puts "yes (" + themodule + ": " + themodulepath + ")"
@@ -15,7 +15,7 @@ def find_modules(module_names, main_module_file_paths)
         puts "no"
         puts ""
         puts "The " + themodule + " Ruby Module (" + themodulepath + ") was not found."
-        abort("Install the module through gem or through a package manager and try again.")
+        abort("Install the module through gem and try again.")
       end
     end
   end
